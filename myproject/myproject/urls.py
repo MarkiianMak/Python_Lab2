@@ -15,8 +15,30 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from django.http import HttpResponseRedirect
+from courses import views
+from rest_framework.routers import DefaultRouter
+
+from courses.views.auth import api_login
+
+
+# def redirect_to_home(request, exception):
+#     return HttpResponseRedirect('/api/courses')
+# handler404 = redirect_to_home
+
+router = DefaultRouter()
+router.register(r'users', views.UserViewSet)
+router.register(r'courses', views.CourseViewSet)
+router.register(r'categories', views.CategoryViewSet)
+router.register(r'additional-resources', views.AdditionalResourceViewSet)
+router.register(r'teachers', views.TeacherViewSet)
+
+urlpatterns = router.urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/', include(router.urls)),
+    path('api/login/', api_login, name='api-login'),
+    
 ]
