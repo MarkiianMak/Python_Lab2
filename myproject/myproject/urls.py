@@ -40,5 +40,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
     path('api/login/', api_login, name='api-login'),
+    path('api/zvit/courses-above-20/', views.course_list_above_20, name='courses-above-20'),
     
 ]
