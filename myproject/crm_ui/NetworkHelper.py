@@ -85,7 +85,6 @@ class NetworkHelper:
         response.raise_for_status()
         return response.json()
 
-    # ----------------- GET /comments/{id}/ -----------------
     @staticmethod
     def get_comment(comment_id):
         url = f"{NetworkHelper.BASE_URL}/comments/{comment_id}/"
@@ -93,7 +92,6 @@ class NetworkHelper:
         response.raise_for_status()
         return response.json()
 
-    # ----------------- POST /comments/ -----------------
     @staticmethod
     def create_comment(data):
        
@@ -102,7 +100,6 @@ class NetworkHelper:
         response.raise_for_status()
         return response.json()
 
-    # ----------------- PUT /comments/{id}/ -----------------
     @staticmethod
     def update_comment(comment_id, data):
         url = f"{NetworkHelper.BASE_URL}/comments/{comment_id}/"
@@ -110,7 +107,6 @@ class NetworkHelper:
         response.raise_for_status()
         return response.json()
 
-    # ----------------- DELETE /comments/{id}/ -----------------
     @staticmethod
     def delete_comment(comment_id):
         url = f"{NetworkHelper.BASE_URL}/comments/{comment_id}/"

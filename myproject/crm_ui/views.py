@@ -39,12 +39,9 @@ class ActivityListView(ListView):
     context_object_name = "activities"
 
     def get_queryset(self):
-        # Отримуємо дані через REST API
         return NetworkHelper.get_activities()
 
-# ----------------- DeleteView -----------------
 def activity_delete(request, pk):
-    # Знаходимо активність у списку API
     activity = None
     activities = NetworkHelper.get_activities()
     for a in activities:
@@ -64,12 +61,9 @@ class CommentListView(ListView):
     context_object_name = "comments"
 
     def get_queryset(self):
-        # Отримуємо список коментарів через REST API
         return NetworkHelper.get_comments()
 
-# ----------------- DeleteView для Comment -----------------
 def comment_delete(request, pk):
-    # Знаходимо коментар у списку API
     comment = None
     comments = NetworkHelper.get_comments()
     for c in comments:

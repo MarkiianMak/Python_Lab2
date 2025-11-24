@@ -48,7 +48,6 @@ print("Deleted status:", status)
 comments = NetworkHelper.get_comments()
 print("Comments:", json.dumps(comments, indent=2))
 
-# 2️⃣ Створити коментар
 new_comment = {
     "activity": 1,
     "body": "Це тестовий коментар",
@@ -57,17 +56,14 @@ new_comment = {
 created = NetworkHelper.create_comment(new_comment)
 print("Created comment:", created)
 
-# 3️⃣ Отримати коментар за ID
 comment = NetworkHelper.get_comment(created['id'])
 print("Single comment:", comment)
 
-# 4️⃣ Оновити коментар
 update_data = {
     "body": "Оновлений текст коментаря"
 }
 updated = NetworkHelper.update_comment(created['id'], update_data)
 print("Updated comment:", updated)
 
-# 5️⃣ Видалити коментар
 status = NetworkHelper.delete_comment(created['id'])
 print("Deleted status:", status)
