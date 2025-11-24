@@ -20,7 +20,7 @@ from django.http import HttpResponseRedirect
 from courses import views
 from rest_framework.routers import DefaultRouter
 
-from courses.views.auth import api_login
+# from courses.views.auth import api_login
 
 
 # def redirect_to_home(request, exception):
@@ -39,7 +39,5 @@ urlpatterns = router.urls
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
-    path('api/login/', api_login, name='api-login'),
-    path('api/zvit/courses-above-20/', views.course_list_above_20, name='courses-above-20'),
-    
+    path('ui/', include('crm_ui.urls')),
 ]

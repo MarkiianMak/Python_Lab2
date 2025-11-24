@@ -1,0 +1,11 @@
+<link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.3/dist/cosmo/bootstrap.min.css" rel="stylesheet">
+
+<h2 class="text-center mb-4">Редагування курсу</h2>
+<div class="container mt-4 m-auto" style="max-width: 900px;">
+     <form method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit" class="btn btn-primary">Зберегти</button>
+          <a href="{% url 'entity_list' %}" class="btn btn-secondary">Назад</a>
+     </form>
+</div>

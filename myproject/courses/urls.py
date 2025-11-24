@@ -5,4 +5,6 @@
 #     path('courses/', views.CourseListView.as_view(), name='course_list'),
 #     path('users/', views.user_list, name='user_list'),
 #     path('users/create/', views.create_user, name='create_user'),
+#     path('ui/', include('crm_ui.urls')),
 # ]
+

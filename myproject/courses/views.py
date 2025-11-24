@@ -1,18 +1,18 @@
-from django.http import JsonResponse
-from django.shortcuts import render
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
-from rest_framework import generics
-from courses.serializer import CourseSerializer, UserSerializer
-from .models import Course, User 
+# from django.http import JsonResponse
+# from django.shortcuts import render
+# from rest_framework.decorators import api_view
+# from rest_framework.response import Response
+# from rest_framework import generics
+# from courses.serializer import CourseSerializer, UserSerializer
+# from .models import Course, User 
 
 
 
-@api_view(['GET'])
-def course_list_above_20(request):
-    courses = Course.objects.filter(duration__gt=20)
-    serializer = CourseSerializer(courses, many=True)
-    return Response(courses.values(), status=200)
+# @api_view(['GET'])
+# def course_list_above_20(request):
+#     courses = Course.objects.filter(duration__gt=20)
+#     serializer = CourseSerializer(courses, many=True)
+#     return Response(courses.values(), status=200)
 
 # @api_view(['GET', 'POST'])
 # def course_list(request):
@@ -26,11 +26,11 @@ def course_list_above_20(request):
 #     queryset = Course.objects.all()
 #     serializer_class = CourseSerializer
 
-@api_view(['GET', 'POST'])
-def user_list(request):
-    users = User.objects.all()
-    serializer = UserSerializer(users, many=True)
-    return Response(serializer.data)
+# @api_view(['GET', 'POST'])
+# def user_list(request):
+#     users = User.objects.all()
+#     serializer = UserSerializer(users, many=True)
+#     return Response(serializer.data)
 
 # @api_view(['POST'])
 # def create_user(request):

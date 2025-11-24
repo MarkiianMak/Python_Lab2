@@ -1,0 +1,10 @@
+<link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.3/dist/cosmo/bootstrap.min.css" rel="stylesheet">
+
+<h1>Видалити {{ object.courseName }}?</h1>
+
+<form method="post">
+     {% csrf_token %}
+     <button type="submit">Так, видалити</button>
+</form>
+
+<a href="{% url 'entity_detail' object.courseId %}">Назад</a>

@@ -1,0 +1,28 @@
+<link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.3/dist/cosmo/bootstrap.min.css" rel="stylesheet">
+
+<div class="container mt-5">
+
+     <h2 class="text-center mb-4">Деталі курсу</h2>
+
+     <table class="table table-bordered">
+          <tr>
+               <th>Назва</th>
+               <td>{{ object.courseName }}</td>
+          </tr>
+          <tr>
+               <th>Тривалість</th>
+               <td>{{ object.duration }} год</td>
+          </tr>
+          <tr>
+               <th>Категорія</th>
+               <td>{{ object.category }}</td>
+          </tr>
+     </table>
+
+     <div class="text-center mt-3">
+          <a href="{% url 'entity_edit' object.courseId %}" class="btn btn-warning">Редагувати</a>
+          <a href="{% url 'entity_delete' object.courseId %}" class="btn btn-danger">Видалити</a>
+          <a href="{% url 'entity_list' %}" class="btn btn-secondary">Назад</a>
+     </div>
+
+</div>

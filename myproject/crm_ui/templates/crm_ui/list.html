@@ -1,0 +1,40 @@
+<link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.3/dist/cosmo/bootstrap.min.css" rel="stylesheet">
+
+<div class="container mt-4">
+
+     <h2 class="text-center mb-4">Список курсів</h2>
+
+     <table class="table table-hover">
+          <thead>
+               <tr>
+                    <th>Назва</th>
+                    <th>Тривалість</th>
+                    <th>Категорія</th>
+                    <th>Дії</th>
+               </tr>
+          </thead>
+          <tbody>
+               {% for obj in object_list %}
+               <tr>
+                    <td>{{ obj.courseName }}</td>
+                    <td>{{ obj.duration }} год</td>
+                    <td>{{ obj.category.categoryName }}</td>
+                    <td>
+                         <a href="{% url 'entity_detail' obj.pk %}" class="btn btn-sm btn-info">Перегляд</a>
+                         <a href="{% url 'entity_edit' obj.pk %}" class="btn btn-sm btn-warning">Редагувати</a>
+                         <a href="{% url 'entity_delete' obj.pk %}" class="btn btn-sm btn-danger">Видалити</a>
+                    </td>
+               </tr>
+               {% empty %}
+               <tr>
+                    <td colspan="4" class="text-center text-muted">Немає курсів</td>
+               </tr>
+               {% endfor %}
+          </tbody>
+     </table>
+
+     <div class="text-center">
+          <a href="{% url 'entity_add' %}" class="btn btn-primary btn-lg">Додати курс</a>
+     </div>
+
+</div>
